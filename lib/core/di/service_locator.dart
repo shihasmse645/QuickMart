@@ -5,6 +5,7 @@ import 'package:quikmart/features/auth/domain/repositories/auth_repository.dart'
 import 'package:quikmart/features/auth/domain/usecases/login_usecase.dart';
 import 'package:quikmart/features/auth/domain/usecases/logout_usecase.dart';
 import 'package:quikmart/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:quikmart/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:quikmart/features/dashboard/data/repositories/dashboard_repository_impl.dart';
 import 'package:quikmart/features/dashboard/domain/repositories/dashboard_repository.dart';
 import 'package:quikmart/features/dashboard/domain/usecases/get_categories_usecase.dart';
@@ -54,4 +55,6 @@ sl.registerLazySingleton<DashboardRepository>(
     getCategoriesUseCase: sl(),
     getProductsUseCase: sl(),
   ));
+  sl.registerLazySingleton(() => CartBloc());
+
 }

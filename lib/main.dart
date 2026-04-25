@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quikmart/core/di/service_locator.dart';
 import 'package:quikmart/core/theme/app_theme.dart';
 import 'package:quikmart/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:quikmart/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:quikmart/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:quikmart/features/splash/splashpage.dart';
 
@@ -21,6 +22,8 @@ class QuikMart extends StatelessWidget {
       providers: [
         BlocProvider<AuthBloc>(create: (context) => sl<AuthBloc>()),
         BlocProvider<DashboardBloc>(create: (context) => sl<DashboardBloc>()),
+        BlocProvider<CartBloc>(create: (context) => sl<CartBloc>()),
+
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

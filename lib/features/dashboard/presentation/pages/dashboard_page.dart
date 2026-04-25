@@ -6,8 +6,10 @@ import 'package:quikmart/features/auth/presentation/bloc/auth_event.dart';
 import 'package:quikmart/features/auth/presentation/pages/login_page.dart';
 import 'package:quikmart/features/dashboard/presentation/widgets/custom_appbar.dart';
 import 'package:quikmart/features/dashboard/presentation/widgets/error_state.dart';
+import 'package:quikmart/features/dashboard/presentation/widgets/floating_cart_button.dart';
 import 'package:quikmart/features/dashboard/presentation/widgets/product_card.dart';
 import 'package:quikmart/features/dashboard/presentation/widgets/promo_banner.dart';
+import 'package:quikmart/features/cart/presentation/pages/cart_page.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../../core/di/service_locator.dart';
 import '../../../../core/theme/app_colors.dart';
@@ -37,6 +39,12 @@ class DashboardPage extends StatelessWidget {
                         onLogoutTap: () {
                           _showClearCartDialog(context);
                         },
+                        onCartTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const CartPage()),
+                          );
+                        },
                       ),
                       _buildShimmerCategoryList(),
                       _buildShimmerProductGrid(),
@@ -53,6 +61,12 @@ class DashboardPage extends StatelessWidget {
                         iconPath: 'assets/images/app_icon.png',
                         onLogoutTap: () {
                           _showClearCartDialog(context);
+                        },
+                        onCartTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const CartPage()),
+                          );
                         },
                       ),
                       const SliverToBoxAdapter(
@@ -116,6 +130,7 @@ class DashboardPage extends StatelessWidget {
                 return const SizedBox();
               },
             ),
+            FloatingCartButton()
           ],
         ),
       ),
